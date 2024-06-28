@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.navbar {
+  max-width: 1312px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d5dd;
+  gap: 12px;
+}
+.navbar h3 {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+}
+
+#addTask {
+  width: 143px;
+  padding: 10px 20px;
+  gap: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0c39c7;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: white;
+}/*# sourceMappingURL=navbar.css.map */

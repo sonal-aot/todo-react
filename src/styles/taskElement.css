@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.taskCard {
+  display: flex;
+  max-width: 1312px;
+  margin: auto;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 8px;
+  border: 1px solid #cecece;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.chkBox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 1px solid #cecece;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+.cardBody {
+  max-width: 1136px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-family: "Montserrat";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.94px;
+  text-align: left;
+  color: #282829;
+}
+
+p.cardDescription {
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #475467;
+}
+
+.cardDueDate {
+  display: flex;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 17.07px;
+  text-align: justify;
+  align-items: center;
+  gap: 8px;
+  color: #667085;
+}
+.cardDueDate img {
+  width: 24px;
+}
+
+.iconEditTrash {
+  display: flex;
+  gap: 8px;
+}/*# sourceMappingURL=taskElement.css.map */

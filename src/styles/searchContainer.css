@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.searchSortContainer {
+  margin: 32px auto;
+  display: flex;
+  max-width: 1312px;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchInput {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+}
+
+.searchBar {
+  max-width: 578px;
+  display: flex;
+  padding: 10px 14px;
+  gap: 8px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+}/*# sourceMappingURL=searchContainer.css.map */
