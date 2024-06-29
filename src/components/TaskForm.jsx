@@ -8,12 +8,12 @@ import InputType from './InputType'
 const TaskForm = ({ setShowForm }) => {
 
     useEffect(() => {
-        const taskform = document.getElementsByClassName('addForm');
-        const handleFormSubmit = (event) => {
+        const taskform = document.querySelector('.addForm');
+        const formSubmit = (event) => {
             event.preventDefault();
-            let taskTitle = document.getElementById('taskTitle').value;
-            let taskDescription = document.getElementById('taskDescription').value;
-            let taskDueDate = document.getElementById('taskDate').value;
+            let taskTitle = document.querySelector('#taskTitle').value;
+            let taskDescription = document.querySelector('#taskDescription').value;
+            let taskDueDate = document.querySelector('#taskDate').value;
 
             let mydata = JSON.parse(localStorage.getItem("tasks")) || [];
 
@@ -30,9 +30,9 @@ const TaskForm = ({ setShowForm }) => {
             setShowForm(false);
         };
 
-        taskform.addEventListener('submit', handleFormSubmit);
+        taskform.addEventListener('submit', formSubmit);
         return () => {
-            taskform.removeEventListener('submit', handleFormSubmit);
+            taskform.removeEventListener('submit', formSubmit);
         };
     }, []);
 
@@ -63,6 +63,8 @@ const TaskForm = ({ setShowForm }) => {
                 <ButtonType className={"closeBtn"} btnText={"Close"} onClick={() => setShowForm(false)} />
                 <ButtonType className={"addBtn"} btnText={"Add Task"} type={"submit"} />
             </div>
+
+            
 
         </form>
     )

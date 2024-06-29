@@ -1,9 +1,9 @@
 import Header from "../components/Header"
 import '../styles/index.css'
 import SearchContainer from "../components/SearchContainer"
-import ActiveTaskContainer from "../components/ActiveTaskContainer"
 import { useState } from "react"
 import TaskForm from "../components/TaskForm"
+import TaskList from "../components/TaskList"
 
 
 function Index() {
@@ -19,7 +19,7 @@ const displayForm =()=>{
         <div className="container">
             <Header displayForm={displayForm} />
             <SearchContainer />
-            <ActiveTaskContainer/>
+            <TaskList/>
             {showForm && <TaskForm setShowForm={setShowForm} />}
         </div>
     )

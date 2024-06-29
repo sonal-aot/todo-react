@@ -2,7 +2,6 @@
 .taskCard {
   display: flex;
   max-width: 1312px;
-  margin: auto;
   gap: 16px;
   padding: 24px;
   border-radius: 8px;
@@ -21,8 +20,19 @@
   height: 30px;
 }
 
+.chkBox:checked {
+  background-image: url("../assets/tick.svg");
+  background-color: #26AD13;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  border: none;
+  cursor: pointer;
+}
+
 .cardBody {
   max-width: 1136px;
+  width: 100%;
   gap: 12px;
   display: flex;
   flex-direction: column;
@@ -35,6 +45,9 @@
   line-height: 21.94px;
   text-align: left;
   color: #282829;
+  padding: 8px 0;
+  display: flex;
+  gap: 8px;
 }
 
 p.cardDescription {

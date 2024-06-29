@@ -1,16 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-.activeTaskContainer {
+.activeTaskContainer,
+.completedTaskContainer {
   max-width: 1312px;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 16px 0;
 }
-.activeTaskContainer span.head {
+.activeTaskContainer span.head,
+.completedTaskContainer span.head {
   font-family: "Montserrat";
   font-size: 18px;
   font-weight: 600;
   line-height: 21.94px;
   text-align: left;
   color: #8b8b8b;
-}/*# sourceMappingURL=activeTaskContainer.css.map */
+}/*# sourceMappingURL=taskList.css.map */
