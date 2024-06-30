@@ -8,8 +8,8 @@ function TaskList({ displayForm }) {
     const [tasks, setTasks] = useState([]);
     const [showEditForm, setShowEditForm] = useState(false);
     const [editTaskId, setEditTaskId] = useState(null);
-    const [sortOption, setSortOption] = useState('Newest First'); // Default sort option
-    const [searchQuery, setSearchQuery] = useState(''); // State for search query
+    const [sortOption, setSortOption] = useState('Newest First');
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         const mydata = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -32,7 +32,7 @@ function TaskList({ displayForm }) {
         setShowEditForm(true);
     };
 
-    const deleteTask = (id) => {
+    const confirmDelete = (id) => {
         const updatedTasks = tasks.filter(task => task.id !== id);
         setTasks(updatedTasks);
         localStorage.setItem("tasks", JSON.stringify(updatedTasks));
@@ -81,7 +81,7 @@ function TaskList({ displayForm }) {
                         task={task}
                         onCheckboxChange={handleCheckboxChange}
                         editTask={editTask}
-                        deleteTask={deleteTask}
+                        confirmDelete={confirmDelete}
                     />
                 ))}
             </div>
@@ -94,7 +94,7 @@ function TaskList({ displayForm }) {
                         task={task}
                         onCheckboxChange={handleCheckboxChange}
                         editTask={editTask}
-                        deleteTask={deleteTask}
+                        confirmDelete={confirmDelete}
                     />
                 ))}
             </div>
