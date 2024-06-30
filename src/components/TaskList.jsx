@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import TaskElement from './TaskElement';
-import '../styles/taskList.css'
-function TaskList() {
+import '../styles/taskList.css';
+import EditForm from '../components/EditTaskForm';
+import SearchContainer from '../components/SearchContainer';
+
+function TaskList({ displayForm }) {
     const [tasks, setTasks] = useState([]);
+    const [showEditForm, setShowEditForm] = useState(false);
+    const [editTaskId, setEditTaskId] = useState(null);
+    const [sortOption, setSortOption] = useState('Newest First'); // Default sort option
+    const [searchQuery, setSearchQuery] = useState(''); // State for search query
 
     useEffect(() => {
         const mydata = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -20,24 +27,84 @@ function TaskList() {
         localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     };
 
-    const activeTasks = tasks.filter(task => !task.completed);
-    const completedTasks = tasks.filter(task => task.completed);
+    const editTask = (id) => {
+        setEditTaskId(id);
+        setShowEditForm(true);
+    };
+
+    const deleteTask = (id) => {
+        const updatedTasks = tasks.filter(task => task.id !== id);
+        setTasks(updatedTasks);
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    };
+
+    const sortTasks = (tasks, criteria) => {
+        switch (criteria) {
+            case 'Newest First':
+                return tasks.sort((a, b) => new Date(b.id) - new Date(a.id));
+            case 'Oldest First':
+                return tasks.sort((a, b) => new Date(a.id) - new Date(b.id));
+            default:
+                return tasks;
+        }
+    };
+
+    const searchTasks = (tasks, query) => {
+        if (!query) return tasks;
+        const lowerCaseQuery = query.toLowerCase();
+        return tasks.filter(task =>
+            task.title.toLowerCase().includes(lowerCaseQuery) ||
+            task.description.toLowerCase().includes(lowerCaseQuery)
+        );
+    };
+
+    const sortedTasks = sortTasks([...tasks], sortOption);
+    const filteredTasks = searchTasks(sortedTasks, searchQuery);
+
+    const activeTasks = filteredTasks.filter(task => !task.completed);
+    const completedTasks = filteredTasks.filter(task => task.completed);
 
     return (
         <div>
+            <SearchContainer
+                sortOption={sortOption}
+                setSortOption={setSortOption}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+            />
+
             <div className="activeTaskContainer">
                 <span className='head'>Active Tasks</span>
                 {activeTasks.map(task => (
-                    <TaskElement key={task.id} task={task} onCheckboxChange={handleCheckboxChange} />
+                    <TaskElement
+                        key={task.id}
+                        task={task}
+                        onCheckboxChange={handleCheckboxChange}
+                        editTask={editTask}
+                        deleteTask={deleteTask}
+                    />
                 ))}
             </div>
 
             <div className="completedTaskContainer">
                 <span className='head'>Completed Tasks</span>
                 {completedTasks.map(task => (
-                    <TaskElement key={task.id} task={task} onCheckboxChange={handleCheckboxChange} />
+                    <TaskElement
+                        key={task.id}
+                        task={task}
+                        onCheckboxChange={handleCheckboxChange}
+                        editTask={editTask}
+                        deleteTask={deleteTask}
+                    />
                 ))}
             </div>
+
+            {showEditForm && (
+                <EditForm
+                    setShowForm={setShowEditForm}
+                    taskId={editTaskId}
+                />
+            )}
         </div>
     );
 }

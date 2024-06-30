@@ -18,7 +18,6 @@ const displayForm =()=>{
 
         <div className="container">
             <Header displayForm={displayForm} />
-            <SearchContainer />
             <TaskList/>
             {showForm && <TaskForm setShowForm={setShowForm} />}
         </div>

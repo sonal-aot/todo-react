@@ -6,7 +6,7 @@ import calenderIcon from '../assets/calender-icon.svg';
 import notCompleted from '../assets/not-completed-icon.svg';
 import completedIcon from '../assets/completed-icon.svg';
 
-function TaskElement({ task, onCheckboxChange }) {
+function TaskElement({ task, onCheckboxChange ,editTask ,deleteTask }) {
   return (
     <div className="taskCard">
       <div>
@@ -30,8 +30,8 @@ function TaskElement({ task, onCheckboxChange }) {
       </div>
 
       <div className="iconEditTrash">
-        <img src={editIcon} alt="edit" onChange={() => editTask(task.id)} />
-        <img src={trashIcon} alt="trash" onChange={() => deleteTask(task.id)} />
+        <img src={editIcon} alt="edit" onClick  ={() => editTask(task.id)} />
+        <img src={trashIcon} alt="trash" onClick={() => deleteTask(task.id)} />
       </div>
     </div>
   );
