@@ -58,6 +58,13 @@ function TaskList({ displayForm }) {
         );
     };
 
+    const clearCompletedTasks = () =>{
+        const updatedTasks = tasks.filter(task => !task.completed);
+        setTasks(updatedTasks);
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+        
+    }
+
     const sortedTasks = sortTasks([...tasks], sortOption);
     const filteredTasks = searchTasks(sortedTasks, searchQuery);
 
@@ -87,7 +94,10 @@ function TaskList({ displayForm }) {
             </div>
 
             <div className="completedTaskContainer">
-                <span className='head'>Completed Tasks</span>
+                <div className="completedHead">
+                    <span className='head'>Completed Tasks</span>
+                    <button onClick={clearCompletedTasks}>Clear Completed Tasks</button>
+                </div>
                 {completedTasks.map(task => (
                     <TaskElement
                         key={task.id}

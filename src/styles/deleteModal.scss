@@ -7,13 +7,13 @@
     justify-content: center;
     margin: auto;
     width: 654px;
-    top: 272px;
+    top: 100px;
     left: 393px;
     padding: 40px;
     gap: 32px;
     border-radius: 12px;
     background-color: #fff;
-    border-inline: 1px solid #cecece;
+    border: 1px solid #cecece;
 
     img {
         width: 11px;
@@ -23,7 +23,7 @@
     }
 }
 
-.deleteHead{
+.deleteHead {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -74,7 +74,7 @@
         font-weight: 500;
         line-height: 19.5px;
         text-align: left;
-        color: #7E7E7F;
+        color: #7e7e7f;
     }
 
     .deleteBtn {
@@ -89,6 +89,6 @@
         font-weight: 500;
         line-height: 19.5px;
         text-align: left;
-        color: #FFFFFF;
+        color: #ffffff;
     }
 }

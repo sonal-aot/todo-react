@@ -77,4 +77,7 @@ p.cardDescription {
 .iconEditTrash {
   display: flex;
   gap: 8px;
+}
+.iconEditTrash img {
+  cursor: pointer;
 }/*# sourceMappingURL=taskElement.css.map */
